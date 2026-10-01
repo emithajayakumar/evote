@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVote | User Management</title>
+    <link rel="stylesheet" href="adminStyle.css">
+    <!-- Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="evote.jpg" alt="eVote Logo">
+            <span class="logo-text">eVote</span>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="homeAdmin.html" class="nav-item">
+                        <ion-icon name="grid-outline"></ion-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item active">
+                        <ion-icon name="people-outline"></ion-icon>
+                        User Managment
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="nav-item">
+                        <ion-icon name="settings-outline"></ion-icon>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-bar">
+            <div>
+                <h1 class="page-title">User Management</h1>
+                <p style="color: var(--text-secondary); margin-top: 5px;">Manage registered students and voters</p>
+            </div>
+
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">Administrator</div>
+                    <div class="user-role">Super Admin</div>
+                </div>
+                <img src="profile.png" alt="Profile" class="profile-img">
+            </div>
+        </header>
+
+        <!-- User Management Content -->
+        <div class="table-card">
+            <div class="table-header">
+                <div>
+                    <h2 class="card-title">Registered Students</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.875rem;">Total: 1,245 Students</p>
+                </div>
+                <div class="table-actions">
+                    <div class="search-container">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <input type="text" placeholder="Search students..." class="search-input">
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal()" style="width: auto; padding: 0.75rem 1.5rem;">
+                        <ion-icon name="add-outline"></ion-icon>
+                        Add Student
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Full Name</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ST2024001</td>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">JD</div>
+                                    <span>John Doe</span>
+                                </div>
+                            </td>
+                            <td>Computer Science</td>
+                            <td>john.doe@university.edu</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>
+                                <button class="btn-icon delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ST2024002</td>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar" style="background: #ec4899;">JS</div>
+                                    <span>Jane Smith</span>
+                                </div>
+                            </td>
+                            <td>Electrical Eng.</td>
+                            <td>jane.smith@university.edu</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>
+                                <button class="btn-icon delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ST2024003</td>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar" style="background: #f59e0b;">MA</div>
+                                    <span>Mike Anderson</span>
+                                </div>
+                            </td>
+                            <td>Mechanical Eng.</td>
+                            <td>mike.a@university.edu</td>
+                            <td><span class="badge badge-danger">Inactive</span></td>
+                            <td>
+                                <button class="btn-icon delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ST2024004</td>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar" style="background: #8b5cf6;">EW</div>
+                                    <span>Emily White</span>
+                                </div>
+                            </td>
+                            <td>Architecture</td>
+                            <td>emily.w@university.edu</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>
+                                <button class="btn-icon delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="modal-overlay" id="addStudentModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Student</h3>
+                <button class="close-btn" onclick="closeModal()">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="add-student-form">
+                    <div class="form-group">
+                        <label>Student ID</label>
+                        <input type="text" placeholder="e.g. ST2024099">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary">Add Student</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('addStudentModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('addStudentModal').classList.remove('active');
+        }
+        document.getElementById('addStudentModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

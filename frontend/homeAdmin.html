@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVote | Admin Dashboard</title>
+    <link rel="stylesheet" href="adminStyle.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+   
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="evote.jpg" alt="eVote Logo">
+            <span class="logo-text">eVote</span>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="#" class="nav-item active">
+                        <ion-icon name="grid-outline"></ion-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="userManagement.html" class="nav-item">
+                     <ion-icon name="people-outline"></ion-icon>
+                        User Managment
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="nav-item">
+                        <ion-icon name="settings-outline"></ion-icon>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    
+    <main class="main-content">
+       
+        <header class="top-bar">
+            <div>
+                <h1 class="page-title">Admin Dashboard</h1>
+                <p style="color: var(--text-secondary); margin-top: 5px;">Overview of voting system status</p>
+            </div>
+
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">Administrator</div>
+                    <div class="user-role">Super Admin</div>
+                </div>
+                <img src="profile.png" alt="Profile" class="profile-img">
+            </div>
+        </header>
+
+       
+        <div class="dashboard-grid">
+
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Voting Controls</h2>
+                </div>
+                <div class="action-buttons">
+                    <a href="votingSetup.html" class="btn btn-primary" style="text-decoration: none;">
+                        <ion-icon name="play-circle-outline" style="font-size: 1.2rem;"></ion-icon>
+                        Start Voting Session
+                    </a>
+                    <button class="btn btn-secondary">
+                        <ion-icon name="refresh-outline" style="font-size: 1.2rem;"></ion-icon>
+                        Reset Statistics
+                    </button>
+                    <button class="btn btn-danger">
+                        <ion-icon name="stop-circle-outline" style="font-size: 1.2rem;"></ion-icon>
+                        End Voting
+                    </button>
+                </div>
+            </div>
+
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Total Votes Cast</h2>
+                </div>
+                <div class="stat-value">24,592</div>
+                <div class="stat-trend">
+                    <ion-icon name="trending-up-outline"></ion-icon>
+                    +12% from last hour
+                </div>
+                <div
+                    style="margin-top: 1.5rem; height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                    <div style="width: 75%; height: 100%; background: var(--accent-color);"></div>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-secondary);">75% Participation Rate
+                </p>
+            </div>
+
+            
+            <!-- Live Election Results -->
+            <div class="card" style="grid-column: span 2;">
+                <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 class="card-title">Live Election Results</h2>
+                    <span class="badge badge-success">Live Updates</span>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <!-- Boy Representative Results -->
+                    <div>
+                        <h3 style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <ion-icon name="man-outline"></ion-icon> Boy Class Representative
+                        </h3>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem;">
+                                <span>John Doe</span>
+                                <span style="color: var(--accent-color); font-weight: 600;">45%</span>
+                            </div>
+                            <div style="height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 45%; height: 100%; background: var(--accent-color);"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem;">
+                                <span>Mike Anderson</span>
+                                <span style="color: var(--accent-color); font-weight: 600;">30%</span>
+                            </div>
+                            <div style="height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 30%; height: 100%; background: #60a5fa;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem;">
+                                <span>Robert Brown</span>
+                                <span style="color: var(--accent-color); font-weight: 600;">25%</span>
+                            </div>
+                            <div style="height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 25%; height: 100%; background: #93c5fd;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Girl Representative Results -->
+                    <div>
+                        <h3 style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <ion-icon name="woman-outline"></ion-icon> Girl Class Representative
+                        </h3>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem;">
+                                <span>Jane Smith</span>
+                                <span style="color: #f472b6; font-weight: 600;">52%</span>
+                            </div>
+                            <div style="height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 52%; height: 100%; background: #f472b6;"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem;">
+                                <span>Emily White</span>
+                                <span style="color: #f472b6; font-weight: 600;">28%</span>
+                            </div>
+                            <div style="height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 28%; height: 100%; background: #f9a8d4;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem;">
+                                <span>Sarah Connor</span>
+                                <span style="color: #f472b6; font-weight: 600;">20%</span>
+                            </div>
+                            <div style="height: 8px; background: #334155; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 20%; height: 100%; background: #fbcfe8;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

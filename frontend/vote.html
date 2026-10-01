@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVote | Cast Your Vote</title>
+    <link rel="stylesheet" href="adminStyle.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .candidate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .candidate-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .candidate-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .candidate-card.selected {
+            border-color: var(--accent-color);
+            background-color: rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .candidate-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--sidebar-bg);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            border: 2px solid var(--border-color);
+        }
+
+        .candidate-card.selected .candidate-avatar {
+            border-color: var(--accent-color);
+        }
+
+        .candidate-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .candidate-dept {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .selection-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            display: none;
+        }
+
+        .candidate-card.selected .selection-badge {
+            display: block;
+        }
+
+        .vote-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .vote-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="evote.jpg" alt="eVote Logo">
+            <span class="logo-text">eVote</span>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="homeStudent.html" class="nav-item">
+                        <ion-icon name="grid-outline"></ion-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item active">
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        Live Voting
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">
+                        <ion-icon name="person-outline"></ion-icon>
+                        Profile
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div>
+                <h1 class="page-title">Cast Your Vote</h1>
+                <p style="color: var(--text-secondary); margin-top: 5px;">Student Council Election | 2024</p>
+            </div>
+
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">Arjun Santhosh</div>
+                    <div class="user-role">Student</div>
+                </div>
+                <img src="profile.png" alt="Profile" class="profile-img">
+            </div>
+        </header>
+
+        <section class="vote-area">
+            <!-- Boy Representative Selection -->
+            <div class="vote-section">
+                <h2 class="vote-section-title">
+                    <ion-icon name="man-outline" style="color: #60a5fa;"></ion-icon>
+                    Boy Class Representative
+                </h2>
+                <div class="candidate-grid" id="boyCandidates">
+                    <div class="candidate-card" onclick="selectCandidate('boy', this, 'John Doe')">
+                        <div class="selection-badge"><ion-icon name="checkmark-circle"></ion-icon></div>
+                        <div class="candidate-avatar">JD</div>
+                        <div class="candidate-name">John Doe</div>
+                        <div class="candidate-dept">Computer Science</div>
+                    </div>
+                    <div class="candidate-card" onclick="selectCandidate('boy', this, 'Mike Anderson')">
+                        <div class="selection-badge"><ion-icon name="checkmark-circle"></ion-icon></div>
+                        <div class="candidate-avatar">MA</div>
+                        <div class="candidate-name">Mike Anderson</div>
+                        <div class="candidate-dept">Mechanical Eng.</div>
+                    </div>
+                    <div class="candidate-card" onclick="selectCandidate('boy', this, 'Robert Brown')">
+                        <div class="selection-badge"><ion-icon name="checkmark-circle"></ion-icon></div>
+                        <div class="candidate-avatar">RB</div>
+                        <div class="candidate-name">Robert Brown</div>
+                        <div class="candidate-dept">Electrical Eng.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Girl Representative Selection -->
+            <div class="vote-section">
+                <h2 class="vote-section-title">
+                    <ion-icon name="woman-outline" style="color: #f472b6;"></ion-icon>
+                    Girl Class Representative
+                </h2>
+                <div class="candidate-grid" id="girlCandidates">
+                    <div class="candidate-card" onclick="selectCandidate('girl', this, 'Jane Smith')">
+                        <div class="selection-badge"><ion-icon name="checkmark-circle"></ion-icon></div>
+                        <div class="candidate-avatar">JS</div>
+                        <div class="candidate-name">Jane Smith</div>
+                        <div class="candidate-dept">Computer Science</div>
+                    </div>
+                    <div class="candidate-card" onclick="selectCandidate('girl', this, 'Emily White')">
+                        <div class="selection-badge"><ion-icon name="checkmark-circle"></ion-icon></div>
+                        <div class="candidate-avatar">EW</div>
+                        <div class="candidate-name">Emily White</div>
+                        <div class="candidate-dept">Architecture</div>
+                    </div>
+                    <div class="candidate-card" onclick="selectCandidate('girl', this, 'Sarah Connor')">
+                        <div class="selection-badge"><ion-icon name="checkmark-circle"></ion-icon></div>
+                        <div class="candidate-avatar">SC</div>
+                        <div class="candidate-name">Sarah Connor</div>
+                        <div class="candidate-dept">Civil Eng.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vote-footer">
+                <button class="btn btn-primary" style="width: auto; padding: 1.25rem 4rem; font-size: 1.2rem;"
+                    onclick="submitVote()">
+                    Cast Your Vote
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let selectedBoy = null;
+        let selectedGirl = null;
+
+        function selectCandidate(type, element, name) {
+            // Remove selection from others in the same group
+            const gridId = type === 'boy' ? 'boyCandidates' : 'girlCandidates';
+            const cards = document.querySelectorAll(`#${gridId} .candidate-card`);
+            cards.forEach(card => card.classList.remove('selected'));
+
+            // Add selection to clicked element
+            element.classList.add('selected');
+
+            // Update state
+            if (type === 'boy') {
+                selectedBoy = name;
+            } else {
+                selectedGirl = name;
+            }
+        }
+
+        function submitVote() {
+            if (!selectedBoy || !selectedGirl) {
+                alert('Please select both a Boy Representative and a Girl Representative before casting your vote.');
+                return;
+            }
+
+            const confirmVote = confirm(`Are you sure you want to cast your vote for:\n\nBoy Rep: ${selectedBoy}\nGirl Rep: ${selectedGirl}`);
+
+            if (confirmVote) {
+                alert('Success! Your vote has been cast securely.');
+                window.location.href = 'homeStudent.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

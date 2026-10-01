@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVote | Setup Voting Session</title>
+    <link rel="stylesheet" href="adminStyle.css">
+    <!-- Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="evote.jpg" alt="eVote Logo">
+            <span class="logo-text">eVote</span>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="homeAdmin.html" class="nav-item">
+                        <ion-icon name="grid-outline"></ion-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="userManagement.html" class="nav-item">
+                        <ion-icon name="people-outline"></ion-icon>
+                        User Managment
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">
+                        <ion-icon name="settings-outline"></ion-icon>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-bar">
+            <div>
+                <h1 class="page-title">Setup Voting Session</h1>
+                <p style="color: var(--text-secondary); margin-top: 5px;">Configure candidates and voters for the
+                    upcoming election.</p>
+            </div>
+
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">Administrator</div>
+                    <div class="user-role">Super Admin</div>
+                </div>
+                <img src="profile.png" alt="Profile" class="profile-img">
+            </div>
+        </header>
+
+        <form class="setup-form">
+            <!-- Step 1: Session Info -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="card-header">
+                    <h2 class="card-title">1. Session Details</h2>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Election Title</label>
+                        <input type="text" placeholder="e.g. Student Council Election 2024">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part A: Select Boy Candidates -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 class="card-title">2A. Select Boy Candidates</h2>
+                    <span style="font-size: 0.875rem; color: var(--text-secondary);">Selected: <span
+                            style="color: var(--accent-color); font-weight: bold;">0</span></span>
+                </div>
+
+                <div class="selection-container">
+                    <!-- Available List (Boys) -->
+                    <div class="selection-box">
+                        <h4 class="box-title">Available Boys</h4>
+                        <div class="search-sm">
+                            <ion-icon name="search-outline"></ion-icon>
+                            <input type="text" placeholder="Search boys...">
+                        </div>
+                        <div class="user-list custom-scrollbar">
+                            <!-- Male User Items -->
+                            <div class="user-item">
+                                <div class="user-item-info">
+                                    <div class="student-avatar">JD</div>
+                                    <div>
+                                        <div class="u-name">John Doe</div>
+                                        <div class="u-dept">Computer Science</div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-add">
+                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                </button>
+                            </div>
+
+                            <div class="user-item">
+                                <div class="user-item-info">
+                                    <div class="student-avatar" style="background: #f59e0b;">MA</div>
+                                    <div>
+                                        <div class="u-name">Mike Anderson</div>
+                                        <div class="u-dept">Mechanical Eng.</div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-add">
+                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selected List (Boys) -->
+                    <div class="selection-box selected-box">
+                        <h4 class="box-title">Final Ballot (Boys)</h4>
+                        <div class="user-list custom-scrollbar">
+                            <div
+                                style="padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.875rem; font-style: italic;">
+                                No boy candidates selected.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part B: Select Girl Candidates -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 class="card-title">2B. Select Girl Candidates</h2>
+                    <span style="font-size: 0.875rem; color: var(--text-secondary);">Selected: <span
+                            style="color: var(--accent-color); font-weight: bold;">0</span></span>
+                </div>
+
+                <div class="selection-container">
+                    <!-- Available List (Girls) -->
+                    <div class="selection-box">
+                        <h4 class="box-title">Available Girls</h4>
+                        <div class="search-sm">
+                            <ion-icon name="search-outline"></ion-icon>
+                            <input type="text" placeholder="Search girls...">
+                        </div>
+                        <div class="user-list custom-scrollbar">
+                            <!-- Female User Items -->
+                            <div class="user-item">
+                                <div class="user-item-info">
+                                    <div class="student-avatar" style="background: #ec4899;">JS</div>
+                                    <div>
+                                        <div class="u-name">Jane Smith</div>
+                                        <div class="u-dept">Electrical Eng.</div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-add">
+                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                </button>
+                            </div>
+
+                            <div class="user-item">
+                                <div class="user-item-info">
+                                    <div class="student-avatar" style="background: #8b5cf6;">EW</div>
+                                    <div>
+                                        <div class="u-name">Emily White</div>
+                                        <div class="u-dept">Architecture</div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-add">
+                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selected List (Girls) -->
+                    <div class="selection-box selected-box">
+                        <h4 class="box-title">Final Ballot (Girls)</h4>
+                        <div class="user-list custom-scrollbar">
+                            <div
+                                style="padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.875rem; font-style: italic;">
+                                No girl candidates selected.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-footer">
+                <a href="homeAdmin.html" class="btn btn-secondary"
+                    style="text-decoration: none; width: auto; padding: 1rem 2rem;">Cancel</a>
+                <button type="button" class="btn btn-primary" style="width: auto; padding: 1rem 3rem;">
+                    Launch Voting Session
+                    <ion-icon name="rocket-outline"></ion-icon>
+                </button>
+            </div>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

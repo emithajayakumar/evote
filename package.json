@@ -1,0 +1,17 @@
+{
+  "name": "evote-system",
+  "version": "1.0.0",
+  "description": "Unified eVote System",
+  "main": "index.js",
+  "scripts": {
+    "start:blockchain": "cd blockchain && npx hardhat node",
+    "start:backend": "cd backend/athstu && node server.js",
+    "start:frontend": "cd react-frontend && npm run dev",
+    "deploy:contract": "cd blockchain && npx hardhat run scripts/deploy.js --network localhost",
+    "dev": "concurrently \"npm run start:blockchain\" \"npm run start:backend\" \"npm run start:frontend\"",
+    "redeploy": "npm run deploy:contract"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
